@@ -24,7 +24,7 @@ jobs:
       - name: Modify opencc
         run: |
           $pythonVersion = (python --version 2>&1 | Out-String).Trim().Split()[-1]
-          $filePath = "C:\hostedtoolcache\windows\python\$pythonVersion\x64\lib\site-packages\opencc\_init_.py.py"
+          $filePath = "C:\hostedtoolcache\windows\python\$pythonVersion\x64\lib\site-packages\opencc\_init_.py"
           (Get-Content $filePath) -replace '_thisdir = .+', '_thisdir = os.path.dirname(os.path.abspath(sys.argv[0]))' | Set-Content $filePath
       
       - name: Build EXE
